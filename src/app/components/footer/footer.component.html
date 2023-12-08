@@ -1,0 +1,10 @@
+<footer [ngClass]="{hidden: emptyTodos()}">
+    <div>
+        <strong>{{activeCount()}} {{itemsLeftText()}}</strong>
+    </div>
+    <div>
+        <a href="/" [ngClass]="{selected: filterSignal() === filterEnum.all}" (click)="changeFilter($event, filterEnum.all)">All</a>
+        <a href="/" [ngClass]="{selected: filterSignal() === filterEnum.active}" (click)="changeFilter($event, filterEnum.active)">Active</a>
+        <a href="/" [ngClass]="{selected: filterSignal() === filterEnum.completed}" (click)="changeFilter($event, filterEnum.completed)">Completed</a>
+    </div>
+</footer>

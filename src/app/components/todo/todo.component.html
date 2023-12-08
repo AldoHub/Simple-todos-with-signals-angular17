@@ -1,0 +1,13 @@
+<div [ngClass]="{completed: todo.isCompleted}">
+
+
+    <input type="checkbox" class="toggle" [checked]="todo.isCompleted" (change)="toggleTodo(todo.id)">
+
+    <label [ngClass]="{hidden: isEditMode}" (dblclick)="setTodoEditMode()">{{todo.text}}</label>
+    
+    <input #inputElem [ngClass]="{hidden: !isEditMode}" type="text" (keyup)="changeText($event)" (keyup.enter)="updateTodo(todo.id)" [value]="todo.text" (blur)="closeEditMode()">    
+    
+    <button (click)="removeTodo(todo.id)">Remove Todo</button>
+
+
+</div>
